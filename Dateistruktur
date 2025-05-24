@@ -1,0 +1,15 @@
+# Tatsächliche Dateipfade auf pveat (Live-System) – Stand 25.05.2024
+
+/home/kiosk/.bash_profile
+/home/kiosk/.xinitrc
+/etc/kiosk/env.sh
+/etc/hosts
+/etc/network/interfaces
+/home/kiosk/killffx.sh
+/etc/systemd/system/kiosk-webhook.service
+/etc/systemd/system/getty@tty1.service.d/override.conf
+/usr/local/bin/reload-kiosk
+/home/kiosk/start-gui.sh
+/home/kiosk/start-kiosk.sh
+/home/kiosk/webhook.py
+/tmp/blaueshaus-archiv/root.crontab
