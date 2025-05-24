@@ -1,0 +1,12 @@
+[Unit]
+Description=Kiosk Webhook Server
+After=network.target
+
+[Service]
+ExecStart=/home/kiosk/webhook-venv/bin/python /home/kiosk/webhook.py
+WorkingDirectory=/home/kiosk
+User=kiosk
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
