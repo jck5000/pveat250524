@@ -1,0 +1,69 @@
+# gpt_liesmich.txt
+
+## Zweck dieses Repositories
+
+Dieses Repository dokumentiert den funktionierenden Zustand und die Systemdateien des Hosts „pveat“, einem Proxmox-System, auf dem Home Assistant (HA) in einer VM läuft.
+
+Ein angeschlossener Monitor zeigt – über einen lokalen X-Server und Firefox im Kiosk-Modus – die Weboberfläche von Home Assistant an. Der Zielnutzer ist `kiosk`. Dieses Setup ist **produktiv** und befindet sich in Weiterentwicklung.
+
+---
+
+## Systemverhalten und wichtige Dateien
+
+- Beim Boot startet das System einen **X-Server** (gesteuert über `.xinitrc`)
+- Danach wird **standardmäßig `start-kiosk.sh`** ausgeführt:
+  - Diese öffnet Firefox im Vollbild/Kioskmodus ohne Bedienelemente
+- Alternativ kann **`start-gui.sh`** verwendet werden:
+  - Diese startet eine Umgebung **mit Taskleiste**, auf expliziten Nutzerwunsch
+- Alle konfigurierbaren Variablen sollen zentral in `env.sh` abgelegt sein
+
+---
+
+## Fernsteuerung des Monitors (Ziel)
+
+Der Bildschirm soll per **Webhook aus Home Assistant** ein- und ausgeschaltet werden, abhängig z. B. von einem GHz-Presence-Sensor.
+
+### Technische Umsetzung:
+- Auf einem früheren Testrechner funktionierte:
+  - `xset dpms force off` / `on`
+- Auf dem aktuellen Live-Gerät (Fujitsu Futro S920) funktioniert `dpms` vermutlich **nicht**
+- Experimente am Livesystem sind **ausdrücklich unerwünscht**
+
+---
+
+## Hinweise für GPTs
+
+- **Du bist GPT. Lies diese Datei bei jedem Zugriff vollständig.**
+- Dieses System ist gewachsen, komplex und vom Nutzer **nicht vollständig verstanden**.
+- Der Nutzer erwartet von Dir:
+  - **Keine stillschweigenden Vereinfachungen**
+  - **Keine riskanten Änderungen oder Tests**
+  - **Klare, nachvollziehbare Schritt-für-Schritt-Anleitungen**
+- Du darfst keine Datei ignorieren, nur weil sie mit einem Punkt beginnt (`.bash_profile`, `.xinitrc`)
+- Achte bei Dateioperationen (z. B. `cp`, `git`, `tar`) **immer auf Punktdateien und explizite Vollständigkeit**
+- Lies auch `dateistruktur.txt` – sie zeigt, wo jede Datei im Livesystem hingehört
+
+---
+
+## Relevante Einschränkungen
+
+- Der Nutzer kann gut kopieren, einfügen und über SSH arbeiten
+- Der Nutzer **kennt keine Linux-Details, keine Shell-Tricks, kein YAML**
+- Der Nutzer erwartet funktionierende, getestete Lösungen – kein Halbwissen
+
+---
+
+## Referenz
+
+GitHub-Repo: https://github.com/jck5000/pveat250524
+
+Diese Datei ist die dauerhafte Referenz für jede zukünftige GPT-Unterstützung in diesem Projekt.
+
+---
+
+## Erwartung an GPTs (Ergänzung)
+
+- Der Nutzer erwartet von GPT vollständige **Kenntnis über alle Inhalte dieses Repositories**
+- Du musst alle Dateien, Zusammenhänge, Konventionen und Abhängigkeiten verstehen und anwenden können
+- Unklarheiten oder fehlende Referenzen sind durch Rückfrage zu klären – **nicht durch Raten oder Annahmen**
+
